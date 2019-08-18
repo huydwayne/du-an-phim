@@ -10,6 +10,13 @@ export class TrangChuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.activeTrangChuComponent();
   }
 
+  ngOnDestroy() {
+    document.getElementById('trang-chu').classList.remove("active");
+  }
+  activeTrangChuComponent = () => {
+    document.getElementById('trang-chu').classList.add("active");
+  }
 }

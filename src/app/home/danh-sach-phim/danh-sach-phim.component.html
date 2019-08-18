@@ -1,3 +1,14 @@
-<p>
-  danh-sach-phim works!
-</p>
+<div class="title mt-4">
+  <h1> Danh Sách Phim </h1>
+
+</div>
+
+<div class="container mt-4">
+  <div class="row .row-eq-height">
+    <div class="col-md-3 mb-4 " *ngFor="let item of danhSachPhim">
+      <app-item-phim [objPhim]="item"></app-item-phim>
+    </div>
+  </div>
+</div>
+
+<app-modal></app-modal>
