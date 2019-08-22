@@ -7,10 +7,9 @@ import { DanhSachPhimComponent } from './danh-sach-phim/danh-sach-phim.component
 import { ItemPhimComponent } from './danh-sach-phim/item-phim/item-phim.component';
 import { ShareModule } from 'src/_core/services/shared/share.module';
 import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
-import { DangKyComponent } from './dang-ky/dang-ky.component';
 
 @NgModule({
-  declarations: [HomeComponent, TrangChuComponent, DanhSachPhimComponent, ItemPhimComponent, DangNhapComponent, DangKyComponent],
+  declarations: [HomeComponent, TrangChuComponent, DanhSachPhimComponent, ItemPhimComponent, DangNhapComponent],
   imports: [CommonModule, HomeRoutingModule,
     ShareModule
   ]

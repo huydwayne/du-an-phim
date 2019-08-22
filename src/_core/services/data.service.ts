@@ -39,15 +39,7 @@ export class DataService {
   }
 
   post(uri: string, data?: Object): Observable<any> {
-    return this.http.post(Api + "/" + uri, data, httpOptions).pipe(
-      tap(
-        () => { },
-
-        catchError(err => {
-          return this.handleError(err);
-        })
-      )
-    )
+    return this.http.post(Api + "/" + uri, data, httpOptions)
   }
 
   handleError(err) {

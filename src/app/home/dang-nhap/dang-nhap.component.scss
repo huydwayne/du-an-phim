@@ -7,12 +7,12 @@ $br: 3px;
 
 // Colors
 $text-light: #fff;
-$text-dark: #666;
+$text-dark: white;
 $blue: #03a9f4;
 $smoke: #f9f9fa;
 $coral: #ff5751;
 $navy-blue: #f37520;
-$green: #07ad90;
+$green: #99ff99;
 $white: white;
 
 * {
@@ -20,7 +20,7 @@ $white: white;
 }
 
 body {
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  // font-family: Tahoma, Verdana, Segoe, sans-serif;
   font-size: 14px;
   background: #4a0042;
   padding: $spacing;
@@ -48,11 +48,28 @@ body {
   width: $prism-length;
   height: $prism-height;
   padding: $spacing;
-  background: #4a0042;
+  background-image: linear-gradient(
+    to right top,
+    #7f30f7,
+    #913af3,
+    #a045ef,
+    #ad50eb,
+    #b85be8,
+    #b762e9,
+    #b669e9,
+    #b570e9,
+    #a975ec,
+    #9d79ee,
+    #917df0,
+    #8480f1
+  );
   border: 3px solid $white;
   border-radius: 3px;
   &.face-bottom {
     border: 3px solid $green;
+  }
+  &.face-back {
+    border: 3px solid red;
   }
   .content {
     color: $text-dark;
@@ -64,6 +81,52 @@ body {
       margin-top: $spacing * 2.6;
       position: relative;
 
+      .error-check {
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 15px;
+        background-color: red;
+        width: 20px;
+        height: 2px;
+        transform: rotate(45deg);
+      }
+      .error-check::after {
+        position: absolute;
+        content: "";
+        right: 0;
+        bottom: 0;
+        background-color: red;
+        width: 20px;
+        height: 2px;
+        transform: rotate(-90deg);
+      }
+
+      .error-message {
+        display: none;
+        font-size: 1em;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        bottom: -30px;
+        left: 0;
+        color: rgb(102, 0, 0);
+      }
+
+      &.error {
+        .error-check {
+          display: block;
+        }
+        .error-message {
+          display: block;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+          border-bottom: 1px solid red;
+        }
+      }
       label {
         position: absolute;
         pointer-events: none;
@@ -110,7 +173,7 @@ body {
         &:not(:placeholder-shown) {
           + label {
             top: -35%;
-            color: $navy-blue;
+            color: #4a0042;
           }
         }
       }
@@ -151,7 +214,7 @@ body {
     width: 200px;
     height: 130px;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     color: $green;
     left: 50%;
     top: 50%;
@@ -166,7 +229,58 @@ body {
       border-right: 0;
       border-top: 0;
       left: 50%;
-      top: 50%;
+      top: 70%;
+      -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      -webkit-animation: success ease-in 0.15s forwards;
+      animation: success ease-in 0.15s forwards;
+      animation-delay: 2.5s;
+    }
+  }
+  .error-msg {
+    position: absolute;
+    width: 200px;
+    height: 130px;
+    text-align: center;
+    font-size: 1.5em;
+    color: red;
+    left: 50%;
+    top: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    &::before {
+      background: red;
+
+      left: 50%;
+      top: 90%;
+      position: absolute;
+      content: "";
+      width: 45px;
+      height: 10px;
+      // border: 10px solid red;
+      // border-right: 0;
+      // border-top: 0;
+      left: 50%;
+      top: 90%;
+      -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      -webkit-animation: success ease-in 0.15s forwards;
+      animation: success ease-in 0.15s forwards;
+      animation-delay: 2.5s;
+    }
+    &:after {
+      background: red;
+
+      left: 50%;
+      top: 90%;
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 45px;
+      // border: 10px solid red;
+      // border-right: 0;
+      // border-top: 0;
+      left: 50%;
+      top: 90%;
       -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
       transform: translate(-50%, -50%) rotate(0deg) scale(0);
       -webkit-animation: success ease-in 0.15s forwards;

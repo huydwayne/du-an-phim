@@ -25,7 +25,7 @@ export class ModalComponent implements OnInit {
       let element = document.getElementById('myModal');
       let displayStyle = element.style.display;
       if (displayStyle === "none") {
-        this.chiTietPhim.Trailer = "";
+        this.chiTietPhim.trailer = "";
       }
     }, 100);
 

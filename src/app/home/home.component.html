@@ -35,11 +35,15 @@
 <div class="register">
   <div class="register__wrap row">
     <ul class="navbar-nav col-xl-6">
-      <li class="btn-register">
-        <a class="btn" routerLink="/dang-ky" id="dang-ky">ĐĂNG KÝ THÀNH VIÊN</a>
+      <li class="btn-register" [ngClass]="{'d-none': userStatusLogin}">
+        <a class="btn" routerLink="/userlogin" id="dang-ky" (click)="activeDangKyComponent()">ĐĂNG KÝ THÀNH VIÊN</a>
       </li>
-      <li class="btn-login">
-        <a class="btn" routerLink="/dang-nhap" id="dang-nhap">ĐĂNG NHẬP</a>
+      <li class="btn-login" [ngClass]="{'d-none': userStatusLogin}">
+        <a class="btn" routerLink="/userlogin" id="dang-nhap" (click)="activeDangNhapComponent()">ĐĂNG NHẬP</a>
+      </li>
+      <li [ngClass]="{'d-none': !userStatusLogin}" *ngIf="userInfo !== null">
+        <p class="user-info">{{userInfo.hoTen}} <span style="color: red; font-size: 16px" (click)="logOut()">[LOG
+            OUT]</span> </p>
       </li>
     </ul>
     <a class="hotline col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6" href="tel:0933255110">0933 255 110</a>

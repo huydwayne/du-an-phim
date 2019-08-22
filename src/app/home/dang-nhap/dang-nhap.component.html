@@ -26,37 +26,36 @@
       <div class="content">
         <h2>ĐĂNG NHẬP</h2>
         <form onsubmit="event.preventDefault()">
-          <div class="field-wrapper">
-            <input type="text" name="username" placeholder="username">
+          <div class="field-wrapper" [ngClass]="{'error': !taiKhoanStatus}">
+            <input type="text" name="username" placeholder="username" #taiKhoan
+              (blur)="lengthValidateTaiKhoan(taiKhoan.value)" (keyup)="nhapTaiKhoan(taiKhoan.value)" id="taiKhoan">
             <label>username</label>
+            <div class="error-check"></div>
+            <span class="error-message">{{taiKhoanErrorMessage}}</span>
           </div>
-          <div class="field-wrapper">
-            <input type="password" name="password" placeholder="password" autocomplete="new-password">
+          <div class="field-wrapper" [ngClass]="{'error': !matKhauStatus}">
+            <input type="password" name="password" placeholder="password" autocomplete="new-password" #matKhau
+              id="matKhau" (keyup)="nhapMatKhau(matKhau.value)" (blur)="lengthValidateMatKhau(matKhau.value)">
             <label>password</label>
+            <div class="error-check"></div>
+            <span class="error-message">{{matKhauErrorMessage}}</span>
+
           </div>
           <div class="field-wrapper">
-            <input style="margin-top: 40px" type="submit" (click)="showThankYou()" value="Đăng nhập">
+            <input style="margin-top: 40px" type="submit" (click)="dangNhap()" value="Đăng nhập">
           </div>
           <!-- <span class="singin" (click)="showLogin()">Already a user? Sign in</span> -->
 
         </form>
       </div>
     </div>
-    <!-- <div class="face face-back">
+    <div class="face face-back" (click)="showLogin()">
       <div class="content">
-        <h2>Forgot your password?</h2>
-        <small>Enter your email so we can send you a reset link for your password</small>
-        <form onsubmit="event.preventDefault()">
-          <div class="field-wrapper">
-            <input type="text" name="email" placeholder="email">
-            <label>e-mail</label>
-          </div>
-          <div class="field-wrapper">
-            <input type="submit" (click)="showThankYou()">
-          </div>
-        </form>
+        <div class="error-msg">
+          Wrong username or password !
+        </div>
       </div>
-    </div> -->
+    </div>
     <div class="face face-right">
       <div class="content">
         <h2>Sign up</h2>
@@ -105,7 +104,7 @@
     <div class="face face-bottom">
       <div class="content">
         <div class="thank-you-msg">
-          Thank you!
+          Thank you !
         </div>
       </div>
     </div>

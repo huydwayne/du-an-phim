@@ -17,11 +17,7 @@ export class ItemPhimComponent implements OnInit {
 
   xemNhanh = () => {
 
-    let linkVideo = this.objPhim.Trailer;
-    let splitted = linkVideo.split("?v=", 2);
-    let newObjPhim = { ...this.objPhim, Trailer: "https://www.youtube.com/embed/" + splitted[1] }
 
-
-    this.shareDataService.sharingDataChiTietPhim(newObjPhim);
+    this.shareDataService.sharingDataChiTietPhim(this.objPhim);
   }
 }
